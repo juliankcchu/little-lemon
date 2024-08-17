@@ -41,8 +41,23 @@ fun Profile() {
                 .background(color = Color(0xFF495E57))
                 .fillMaxWidth()
                 .border(BorderStroke(2.dp, SolidColor(Color.Red))),
-            text = "Profile",
+            text = "Profile Information",
             color = Color(0xFFFFFFFF)
+        )
+        OutlinedTextField(
+            value = "",
+            onValueChange = {},
+            label = { Text(text = "First name") },
+        )
+        OutlinedTextField(
+            value = "",
+            onValueChange = {},
+            label = { Text(text = "Last name") },
+        )
+        OutlinedTextField(
+            value = "",
+            onValueChange = {},
+            label = { Text(text = "Email") },
         )
         Button(
             onClick = { /*TODO*/ },
