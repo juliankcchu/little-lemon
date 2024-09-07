@@ -8,7 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun Navigation(context: Context) {
+fun Navigation(context: Context, menuItems: List<MenuItemRoom>) {
     val navController = rememberNavController()
 
     // Using SharedPreferences in Android Jetpack Compose | by Chintan Joshi | Medium, 2023 Jul 10,
@@ -33,13 +33,13 @@ fun Navigation(context: Context) {
         startDestination = startDestination.route
     ) {
         composable(Home.route) {
-            Home()
+            Home(navController, menuItems)
         }
         composable(Onboarding.route) {
-            Onboarding(navController = navController)
+            Onboarding(navController)
         }
         composable(Profile.route) {
-            Profile()
+            Profile(navController)
         }
     }
 }

@@ -14,7 +14,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -92,7 +91,7 @@ fun Onboarding(navController : NavHostController) {
                 lastname = it
             }
         )
-        TextField(
+        OutlinedTextField(
             modifier = Modifier.padding(10.dp),
             label = { Text(text = "Email") },
             value = email,
@@ -124,20 +123,18 @@ fun Onboarding(navController : NavHostController) {
                 //   in the SharedPreferences and display the text "Registration successful!".
                 // - When a user presses the Register button they should be logged into your app
                 //   and the app must navigate to the Home screen.
-                Log.d("AAA", "${firstname.text}")
-                Log.d("AAA", "${lastname.text}")
-                Log.d("AAA", "${email.text}")
+                Log.d("LittleLemon", "${firstname.text}")
+                Log.d("LittleLemon", "${lastname.text}")
+                Log.d("LittleLemon", "${email.text}")
                 if (isValidRegistration("${firstname.text}", "${lastname.text}", "${email.text}")) {
                     doRegistration(preferencesManager,"${firstname.text}", "${lastname.text}", "${email.text}");
-                    Toast.makeText(
-                        context,
+                    Toast.makeText(context,
                         "Registration successful!",
                         Toast.LENGTH_LONG
                     ).show()
                     navController.navigate(Home.route)
                 } else {
-                    Toast.makeText(
-                        context,
+                    Toast.makeText(context,
                         "Registration unsuccessful. Please enter all data.",
                         Toast.LENGTH_LONG
                     ).show()

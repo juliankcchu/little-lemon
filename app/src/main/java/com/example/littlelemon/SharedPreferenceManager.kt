@@ -9,6 +9,14 @@ class SharedPreferenceManager (context: Context) {
     private val sharedPreferences: SharedPreferences =
         context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 
+    fun clearAll() {
+        sharedPreferences.edit().clear().commit()
+    }
+
+    fun clearData(key: String) {
+        sharedPreferences.edit().remove(key).commit();
+    }
+
     fun saveData(key: String, value: String) {
         val editor = sharedPreferences.edit()
         editor.putString(key, value)
