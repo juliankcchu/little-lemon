@@ -51,50 +51,13 @@ import com.bumptech.glide.integration.compose.GlideImage
 @Composable
 fun Home(navController : NavHostController, allMenuItems: List<MenuItemRoom>) {
     Column {
-        TopPanel(navController)
-        ContentPanel(navController, allMenuItems)
+        TopBarPanel(navController)
+        HomeContentPanel(navController, allMenuItems)
     }
 }
 
 @Composable
-fun TopPanel(navController : NavHostController) {
-    Row(
-        //verticalAlignment = Alignment.CenterVertically,
-        //horizontalArrangement = Arrangement.SpaceBetween,
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(50.dp)
-            .padding(start = 8.dp, end = 8.dp, top = 8.dp, bottom = 8.dp)
-    ) {
-        Box(Modifier.fillMaxSize()) {// https://foso.github.io/Jetpack-Compose-Playground/layout/box/
-            Image( // https://developer.android.com/develop/ui/compose/graphics/images/customize
-                contentScale = ContentScale.Fit,
-                painter = painterResource(id = R.drawable.logo),
-                contentDescription = "Little Lemon logo image",
-                modifier = Modifier
-                    .fillMaxHeight()
-                    .size(185.dp) // https://stackoverflow.com/questions/70476714/jetpack-compose-make-image-scale-to-the-available-size-in-column-row
-                                // https://medium.com/@abhineshchandra1234/alignment-in-jetpack-compose-e18b4a78ef8a
-                    .align(Alignment.TopCenter)
-            )
-            Image(
-                contentScale = ContentScale.Fit,
-                painter = painterResource(id = R.drawable.profile),
-                contentDescription = "profile image",
-                modifier = Modifier
-                    .fillMaxHeight()
-                    .align(Alignment.CenterEnd)
-                    .clickable {
-                        // navigate to the Profile screen
-                        navController.navigate(Profile.route)
-                    }
-            )
-        }
-    }
-}
-
-@Composable
-fun ContentPanel(navController : NavHostController, allMenuItems: List<MenuItemRoom>) {
+fun HomeContentPanel(navController : NavHostController, allMenuItems: List<MenuItemRoom>) {
     var menuItems: List<MenuItemRoom> = allMenuItems
 
     // filter by search phrase
@@ -179,7 +142,6 @@ fun ContentPanel(navController : NavHostController, allMenuItems: List<MenuItemR
                 .padding(8.dp)
         )
 
-        //var allCategories: List<String> = allMenuItems.map { it.category };
         val allCategoryItems : List<String> = (allMenuItems.map { it.category }).toSet().toList()
         LazyRow(
             horizontalArrangement = Arrangement.spacedBy(4.dp)
