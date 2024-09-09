@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Little Lemon</string>
+    <string name="app_name">Little Lemon Capstone</string>
+    <string name="home_title">Little Lemon</string>
+    <string name="home_location">Chicago</string>
+    <string name="home_description">\nWe are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</string>
+    <string name="home_search_label">Enter search phrase</string>
 </resources>
